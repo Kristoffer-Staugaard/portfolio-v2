@@ -1,0 +1,585 @@
+/* Services Grid */
+.services-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #0a0a0a;
+  border-radius: 0.75rem 0.75rem 0 0;
+  margin-top: 1.5rem;
+  padding: 2rem;
+  gap: 2rem;
+
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      height: 500px;
+    }
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #171717;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 0.375rem;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    overflow: hidden;
+
+    &.default {
+      flex: 1;
+      min-height: 400px;
+
+      @media (min-width: 1024px) {
+        min-height: auto;
+      }
+    }
+
+    &.expanded {
+      flex: 3;
+      min-height: 500px;
+
+      @media (max-width: 1023px) {
+        height: 500px;
+      }
+    }
+
+    &.collapsed {
+      flex: 0 0 80px;
+      min-height: 80px;
+
+      @media (min-width: 1024px) {
+        min-height: auto;
+        flex: 0 0 90px;
+      }
+    }
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+
+      .card-inner {
+        .default-title h3 {
+          transform: translateX(4px);
+        }
+      }
+
+      /* Hover States */
+      .animation-section .animation-container.brutal-branding {
+        .brutal-typography {
+          transform: translate(-50%, -50%) scale(1.1) rotate(5deg);
+          box-shadow: 15px 15px 0 #fd4d1e;
+          border-color: #fff;
+        }
+      }
+      
+      .animation-section .animation-container.brutal-web {
+        .brutal-window {
+          transform: scale(1.05) rotate(-2deg);
+          box-shadow: -15px 15px 0 #fff;
+          border-color: #fd4d1e;
+        }
+      }
+      
+      .animation-section .animation-container.brutal-motion {
+        .brutal-frame {
+          border-color: #fd4d1e;
+          .frame-corner { border-color: #fff; background: #fd4d1e; }
+        }
+      }
+    }
+
+    .card-inner {
+      position: relative;
+      flex: 1;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      background-color: #0a0a0a;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.5s ease;
+
+      @media (min-width: 1024px) {
+        flex-direction: row;
+      }
+    }
+
+    .expanded-content {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      pointer-events: none;
+      padding: 2rem;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: opacity 0.3s ease;
+
+      @media (min-width: 1024px) {
+        width: 50%;
+        padding: 3rem;
+      }
+
+      .expanded-info {
+        opacity: 0;
+        transform: translateX(-10px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+
+        h3 {
+          font-size: 1.5rem;
+          font-weight: 400;
+          color: #fff;
+          margin-bottom: 1rem;
+          letter-spacing: -0.025em;
+        }
+
+        p {
+          color: #a3a3a3;
+          font-size: 0.875rem;
+          line-height: 1.5;
+          margin-bottom: 2rem;
+          white-space: normal;
+          max-width: 400px;
+        }
+
+        .skills-list {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+
+          @media (min-width: 640px) {
+            flex-direction: row;
+            gap: 2rem;
+          }
+
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+
+            li {
+              color: #737373;
+              font-size: 0.75rem;
+              font-family: inherit;
+            }
+          }
+        }
+      }
+    }
+
+    .animation-section {
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition:
+        all 0.5s ease,
+        opacity 0.3s ease;
+      width: 100%;
+      height: 100%;
+      min-width: 320px;
+
+      @media (min-width: 1024px) {
+        flex: 0 0 100%;
+        margin-left: 0;
+      }
+
+      .animation-container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        perspective: 1000px;
+
+        /* Brutalist Branding */
+        &.brutal-branding {
+          background: #0a0a0a;
+          
+          .brutal-grid {
+            position: absolute; inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+          }
+          
+          .brutal-marquee-container {
+            position: absolute;
+            width: 120%;
+            height: 30px;
+            background: #fd4d1e;
+            color: #000;
+            display: flex;
+            align-items: center;
+            font-family: monospace;
+            font-weight: bold;
+            font-size: 12px;
+            overflow: hidden;
+            transform: rotate(-5deg);
+            border-top: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            z-index: 2;
+            
+            &.top { top: 20%; }
+            &.bottom { bottom: 20%; transform: rotate(5deg); background: #fff; color: #000; border-color: #fd4d1e; }
+            
+            .brutal-marquee {
+              display: flex;
+              white-space: nowrap;
+              animation: brutal-scroll 10s linear infinite;
+              &.reverse { animation-direction: reverse; }
+            }
+          }
+          
+          .brutal-typography {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: #000;
+            border: 4px solid #fd4d1e;
+            padding: 20px;
+            box-shadow: 10px 10px 0 #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 3;
+            transition: all 0.3s ease;
+            
+            .type-large {
+              font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+              font-size: 64px;
+              font-weight: 900;
+              color: #fff;
+              line-height: 1;
+              margin-bottom: 10px;
+            }
+            .type-info {
+              font-family: monospace;
+              font-size: 10px;
+              color: #fd4d1e;
+              text-align: center;
+            }
+          }
+          
+          .brutal-badge {
+            position: absolute;
+            top: 10%; right: 10%;
+            width: 60px; height: 60px;
+            z-index: 4;
+            animation: brutal-spin 10s linear infinite;
+            
+            .badge-star {
+              width: 100%; height: 100%;
+              fill: #fd4d1e;
+              stroke: #fff;
+              stroke-width: 2;
+            }
+            .badge-text {
+              position: absolute;
+              top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              font-family: monospace;
+              font-weight: bold;
+              font-size: 12px;
+              color: #fff;
+            }
+          }
+        }
+
+        /* Brutalist Web */
+        &.brutal-web {
+          background: #0a0a0a;
+          
+          .brutal-grid {
+            position: absolute; inset: 0;
+            background-image: radial-gradient(rgba(253, 77, 30, 0.2) 2px, transparent 2px);
+            background-size: 15px 15px;
+          }
+          
+          .brutal-window {
+            position: absolute;
+            width: 80%; max-width: 250px;
+            height: 60%;
+            background: #000;
+            border: 3px solid #fff;
+            box-shadow: -10px 10px 0 #fd4d1e;
+            display: flex;
+            flex-direction: column;
+            z-index: 2;
+            transition: all 0.3s ease;
+            
+            .window-bar {
+              height: 24px;
+              background: #fff;
+              display: flex;
+              align-items: center;
+              padding: 0 8px;
+              border-bottom: 3px solid #fff;
+              
+              .window-controls {
+                display: flex; gap: 4px;
+                .ctrl { width: 10px; height: 10px; border: 2px solid #000; border-radius: 50%; }
+                .close { background: #fd4d1e; }
+                .min { background: #fff; }
+                .max { background: #000; }
+              }
+              .window-title {
+                flex: 1;
+                text-align: center;
+                font-family: monospace;
+                font-size: 10px;
+                font-weight: bold;
+                color: #000;
+              }
+            }
+            
+            .window-content {
+              flex: 1;
+              padding: 10px;
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              
+              .wire-header { height: 15px; border: 2px solid #fff; }
+              .wire-hero { 
+                flex: 1; border: 2px solid #fd4d1e; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+                .wire-title { width: 60%; height: 10px; background: #fff; }
+                .wire-btn { background: #fd4d1e; color: #000; font-family: monospace; font-size: 8px; font-weight: bold; padding: 2px 6px; border: 2px solid #fff; }
+              }
+              .wire-grid {
+                display: flex; gap: 10px; height: 30px;
+                .wire-card { flex: 1; border: 2px dashed #fff; }
+              }
+            }
+          }
+          
+          .brutal-tag {
+            position: absolute;
+            font-family: monospace;
+            font-size: 14px;
+            font-weight: bold;
+            color: #fd4d1e;
+            background: #000;
+            border: 2px solid #fd4d1e;
+            padding: 2px 8px;
+            z-index: 3;
+            
+            &.tag-1 { top: 10%; left: 5%; transform: rotate(-10deg); }
+            &.tag-2 { bottom: 10%; right: 5%; transform: rotate(10deg); }
+          }
+        }
+
+        /* Brutalist Motion */
+        &.brutal-motion {
+          background: #0a0a0a;
+          
+          .brutal-grid {
+            position: absolute; inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.1) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.1) 2px, transparent 2px);
+            background-size: 40px 40px;
+            background-position: center;
+          }
+          
+          .brutal-frame {
+            position: absolute;
+            width: 70%; height: 60%;
+            border: 4px solid #fff;
+            z-index: 2;
+            transition: all 0.3s ease;
+            
+            .frame-corner {
+              position: absolute;
+              width: 15px; height: 15px;
+              border: 4px solid #fd4d1e;
+              background: #000;
+              transition: all 0.3s ease;
+              
+              &.tl { top: -8px; left: -8px; }
+              &.tr { top: -8px; right: -8px; }
+              &.bl { bottom: -8px; left: -8px; }
+              &.br { bottom: -8px; right: -8px; }
+            }
+            
+            .motion-path {
+              position: absolute; inset: 0;
+              svg {
+                width: 100%; height: 100%;
+                polyline {
+                  fill: none;
+                  stroke: rgba(255,255,255,0.3);
+                  stroke-width: 4;
+                  stroke-dasharray: 10 10;
+                }
+              }
+            }
+            
+            .bouncing-ball {
+              position: absolute;
+              width: 30px; height: 30px;
+              background: #fd4d1e;
+              border: 4px solid #fff;
+              border-radius: 50%;
+              top: 0; left: 0;
+              margin-top: -15px; margin-left: -15px;
+              animation: brutal-bounce 4s infinite linear alternate;
+            }
+          }
+          
+          .brutal-stats {
+            position: absolute;
+            bottom: 10%; left: 10%;
+            display: flex; flex-direction: column; gap: 5px;
+            z-index: 3;
+            
+            .stat {
+              font-family: monospace;
+              font-size: 12px;
+              font-weight: bold;
+              color: #000;
+              background: #fd4d1e;
+              padding: 2px 6px;
+              border: 2px solid #fff;
+              display: inline-block;
+            }
+          }
+        }
+      }
+
+      .gradient-bottom {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, #0a0a0a, transparent, transparent);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .text-content {
+        padding: 1.5rem;
+
+        h3 {
+          font-size: 1.25rem;
+          font-weight: 500;
+          color: #e5e5e5;
+          letter-spacing: -0.025em;
+          transition:
+            transform 0.5s,
+            opacity 0.3s ease;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .collapsed-title {
+      display: none;
+      position: absolute;
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        color: #a3a3a3;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+        transition: color 0.3s;
+
+        @media (min-width: 1024px) {
+          transform: rotate(-90deg);
+        }
+      }
+    }
+
+    /* States */
+    &.expanded {
+      .expanded-content {
+        opacity: 1;
+        pointer-events: auto;
+
+        .expanded-info {
+          opacity: 1;
+          transform: translateX(0);
+          transition-delay: 0.2s;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .animation-section {
+          flex: 0 0 50%;
+          margin-left: 50%;
+          border-left: 1px solid rgba(255, 255, 255, 0.05);
+        }
+      }
+
+      @media (max-width: 1023px) {
+        .animation-section {
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+
+      .default-title {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    &.collapsed {
+      .card-inner {
+        background-color: transparent;
+        border: 1px solid transparent;
+      }
+
+      .expanded-content {
+        opacity: 0;
+      }
+
+      .animation-section {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .collapsed-title {
+        display: flex;
+      }
+
+      &:hover .collapsed-title span {
+        color: #fff;
+      }
+    }
+  }
+}
+
+@keyframes brutal-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes brutal-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes brutal-bounce {
+  0% { left: 0%; top: 100%; }
+  25% { left: 25%; top: 20%; }
+  50% { left: 50%; top: 80%; }
+  75% { left: 75%; top: 10%; }
+  100% { left: 100%; top: 90%; }
+}
