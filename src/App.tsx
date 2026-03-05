@@ -9,7 +9,6 @@ import "./styles/FooterCta.scss";
 export default function App() {
   return (
     <>
-      <div className="grain-overlay"></div>
       <Navbar />
       <main>
         <Hero />
