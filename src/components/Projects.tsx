@@ -20,22 +20,30 @@ export default function Projects() {
           className="card-content bg-orange-card"
           style={{ overflow: "hidden" }}
         >
-          <div className="browser-mockup">
-            <div className="browser-header">
-              <div className="browser-dots">
-                <span className="dot close"></span>
-                <span className="dot min"></span>
-                <span className="dot max"></span>
-              </div>
-              <div className="browser-url">callbuddy.com</div>
-            </div>
-            <div className="browser-content">
-              <img
-                src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop"
-                alt="Callbuddy Screenshot"
-              />
-            </div>
-          </div>
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              opacity: 0.2,
+              mixBlendMode: "overlay",
+              backgroundImage:
+                "url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          ></div>
+          <h2
+            style={{
+              fontSize: "4rem",
+              fontWeight: 600,
+              fontStyle: "italic",
+              color: "white",
+              mixBlendMode: "overlay",
+              zIndex: 10,
+            }}
+          >
+            NOISE
+          </h2>
         </div>
       </div>
 

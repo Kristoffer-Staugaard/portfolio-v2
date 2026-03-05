@@ -12,29 +12,58 @@ const SERVICES_DATA = [
       ['UX Design / Research', 'UX Copywriting', 'Creative Direction']
     ],
     animation: (
-      <div className="animation-container brutal-branding">
-        <div className="brutal-grid"></div>
-        <div className="brutal-marquee-container top">
-          <div className="brutal-marquee">
-            <span>BRAND SYSTEM • IDENTITY • TYPOGRAPHY • BRAND SYSTEM • IDENTITY • TYPOGRAPHY •</span>
-          </div>
+      <div className="animation-container branding-anim-bento">
+        <div className="ascii-bg">
+          {Array.from({ length: 15 }).map((_, i) => (
+            <div key={i} className="ascii-row">
+              {Array.from({ length: 30 }).map((_, j) => (
+                <span key={j}>{Math.random() > 0.8 ? '+' : Math.random() > 0.5 ? '-' : '.'}</span>
+              ))}
+            </div>
+          ))}
         </div>
-        <div className="brutal-typography">
-          <div className="type-large">Aa</div>
-          <div className="type-info">
-            <div className="info-row">FONT: HELVETICA</div>
-            <div className="info-row">WEIGHT: 900</div>
-          </div>
-        </div>
-        <div className="brutal-badge">
-          <svg viewBox="0 0 100 100" className="badge-star">
-            <polygon points="50,5 61,35 95,35 68,55 78,85 50,65 22,85 32,55 5,35 39,35" />
-          </svg>
-          <span className="badge-text">100%</span>
-        </div>
-        <div className="brutal-marquee-container bottom">
-          <div className="brutal-marquee reverse">
-            <span>BRAND SYSTEM • IDENTITY • TYPOGRAPHY • BRAND SYSTEM • IDENTITY • TYPOGRAPHY •</span>
+        <div className="scene-3d">
+          <div className="brand-bento-wrapper">
+            
+            {/* ADDED: Floating Tags for Branding */}
+            <div className="floating-tag tag-logo">{'[ LOGOMARK ]'}</div>
+            <div className="floating-tag tag-color">{'#FD4D1E'}</div>
+            <div className="floating-tag tag-type">{'.font-serif'}</div>
+
+            <div className="brand-bento-inner">
+            
+            <div className="bento-panel p-logo">
+              {/* ... existing p-logo content ... */}
+              <div className="b-content">
+                <div className="wireframe-shape"></div>
+              </div>
+            </div>
+            
+            <div className="bento-panel p-colors">
+              <div className="b-content">
+                <div className="c-bar c1"></div>
+                <div className="c-bar c2"></div>
+                <div className="c-bar c3"></div>
+              </div>
+            </div>
+            
+            <div className="bento-panel p-type">
+              <div className="b-content">
+                <span className="t-large">Aa</span>
+                <div className="t-lines">
+                  <div className="t-line"></div>
+                  <div className="t-line short"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bento-panel p-grid">
+              <div className="b-content">
+                <div className="g-dot"></div>
+              </div>
+            </div>
+
+            </div>
           </div>
         </div>
       </div>
@@ -50,31 +79,76 @@ const SERVICES_DATA = [
       ['Web Animations', 'Technical SEO', 'Performance Tuning']
     ],
     animation: (
-      <div className="animation-container brutal-web">
-        <div className="brutal-grid"></div>
-        <div className="brutal-window">
-          <div className="window-bar">
-            <div className="window-controls">
-              <div className="ctrl close"></div>
-              <div className="ctrl min"></div>
-              <div className="ctrl max"></div>
+      <div className="animation-container web-anim-new">
+        <div className="ascii-bg">
+          {Array.from({ length: 15 }).map((_, i) => (
+            <div key={i} className="ascii-row">
+              {Array.from({ length: 30 }).map((_, j) => (
+                <span key={j}>{Math.random() > 0.9 ? '<>' : Math.random() > 0.5 ? '/' : '*'}</span>
+              ))}
             </div>
-            <div className="window-title">index.html</div>
-          </div>
-          <div className="window-content">
-            <div className="wire-header"></div>
-            <div className="wire-hero">
-              <div className="wire-title"></div>
-              <div className="wire-btn">CLICK</div>
+          ))}
+        </div>
+        <div className="scene-3d">
+          <div className="tech-stack-wrapper">
+            
+            {/* Data Streams */}
+            <div className="data-stream s1"><div className="packet"></div></div>
+            <div className="data-stream s2"><div className="packet"></div></div>
+            <div className="data-stream s3"><div className="packet"></div></div>
+
+            {/* Top Layer: UI */}
+            <div className="stack-layer layer-ui">
+              <div className="layer-plane">
+                <div className="ui-nav">
+                  <div className="ui-logo"></div>
+                  <div className="ui-links"><span></span><span></span></div>
+                </div>
+                <div className="ui-hero">
+                  <div className="ui-text"></div>
+                  <div className="ui-text short"></div>
+                  <div className="ui-btn"></div>
+                </div>
+              </div>
+              <div className="layer-label">
+                <span className="tag">{'<FRONTEND />'}</span>
+              </div>
             </div>
-            <div className="wire-grid">
-              <div className="wire-card"></div>
-              <div className="wire-card"></div>
+
+            {/* Middle Layer: API */}
+            <div className="stack-layer layer-api">
+              <div className="layer-plane">
+                <div className="api-grid"></div>
+                <div className="api-node n1"></div>
+                <div className="api-node n2"></div>
+                <div className="api-node n3"></div>
+                <div className="api-node n4"></div>
+                <svg className="api-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+                  <path d="M 20 20 L 80 50 L 30 80 L 50 40 Z" fill="none" stroke="#fd4d1e" strokeWidth="1" strokeDasharray="3 3" />
+                </svg>
+              </div>
+              <div className="layer-label">
+                <span className="tag">{'SERVER_API'}</span>
+              </div>
             </div>
+
+            {/* Bottom Layer: DB */}
+            <div className="stack-layer layer-db">
+              <div className="layer-plane">
+                <div className="db-container">
+                  <div className="db-disk d1"></div>
+                  <div className="db-disk d2"></div>
+                  <div className="db-disk d3"></div>
+                  <div className="db-core"></div>
+                </div>
+              </div>
+              <div className="layer-label">
+                <span className="tag">{'{DATABASE}'}</span>
+              </div>
+            </div>
+
           </div>
         </div>
-        <div className="brutal-tag tag-1">{'<main>'}</div>
-        <div className="brutal-tag tag-2">{'</main>'}</div>
       </div>
     )
   },
@@ -88,24 +162,68 @@ const SERVICES_DATA = [
       ['Lottie Animations', 'WebGL Experiences', 'Creative Direction']
     ],
     animation: (
-      <div className="animation-container brutal-motion">
-        <div className="brutal-grid"></div>
-        <div className="brutal-frame">
-          <div className="frame-corner tl"></div>
-          <div className="frame-corner tr"></div>
-          <div className="frame-corner bl"></div>
-          <div className="frame-corner br"></div>
-          
-          <div className="motion-path">
-            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-              <polyline points="0,100 25,20 50,80 75,10 100,90" />
-            </svg>
-          </div>
-          <div className="bouncing-ball"></div>
+      <div className="animation-container motion-anim">
+        <div className="ascii-bg">
+          {Array.from({ length: 15 }).map((_, i) => (
+            <div key={i} className="ascii-row">
+              {Array.from({ length: 30 }).map((_, j) => (
+                <span key={j}>{Math.random() > 0.8 ? '~' : Math.random() > 0.5 ? '^' : '.'}</span>
+              ))}
+            </div>
+          ))}
         </div>
-        <div className="brutal-stats">
-          <div className="stat">FPS: 60</div>
-          <div className="stat">EASE: LINEAR</div>
+        <div className="scene-3d">
+          <div className="motion-dev-wrapper">
+            <div className="floating-tag tag-ease">{'ease: "power3.out"'}</div>
+            <div className="floating-tag tag-dur">{'duration: 2.5s'}</div>
+            <div className="floating-tag tag-fps">{'fps: 60'}</div>
+            
+            <div className="software-3d">
+              <div className="s-top-bar">
+                <div className="s-dots"><span></span><span></span><span></span></div>
+                <div className="s-title">Motion_Project.aep</div>
+              </div>
+              <div className="s-layout">
+                <div className="s-viewport">
+                  <div className="v-grid"></div>
+                  <div className="v-path">
+                    <svg viewBox="0 0 100 60" preserveAspectRatio="none">
+                      <path d="M 10 50 C 30 10, 70 10, 90 50" fill="none" stroke="#fd4d1e" strokeWidth="2" strokeDasharray="4 4" />
+                    </svg>
+                  </div>
+                  <div className="v-object">
+                    <div className="v-cube">
+                      <div className="face front"></div>
+                      <div className="face back"></div>
+                      <div className="face left"></div>
+                      <div className="face right"></div>
+                      <div className="face top"></div>
+                      <div className="face bottom"></div>
+                    </div>
+                  </div>
+                </div>
+                <div className="s-timeline">
+                  <div className="t-header">
+                    <div className="t-playhead-top"></div>
+                  </div>
+                  <div className="t-tracks">
+                    <div className="t-playhead-line"></div>
+                    <div className="t-track">
+                      <div className="t-keyframe k-1"></div>
+                      <div className="t-keyframe k-2"></div>
+                    </div>
+                    <div className="t-track">
+                      <div className="t-keyframe k-3"></div>
+                      <div className="t-keyframe k-4"></div>
+                    </div>
+                    <div className="t-track">
+                      <div className="t-bar"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     )
