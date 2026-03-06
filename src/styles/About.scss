@@ -348,13 +348,17 @@
 
       .globe-visual {
         position: absolute;
-        bottom: -50%;
-        width: 180%;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 45%);
+        width: 100%;
+        min-width: 600px;
+        max-width: 800px;
         aspect-ratio: 1/1;
         display: flex;
         align-items: center;
         justify-content: center;
-        opacity: 0.4;
+        opacity: 0.8;
         transition: opacity 1s;
         pointer-events: none;
 

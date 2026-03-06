@@ -2,21 +2,6 @@ import { useRef, useState, useEffect } from "react";
 import { Framer, Figma, Code, Layout } from "lucide-react";
 import "../styles/Projects.scss";
 
-// Ambient ASCII Background Component
-const AsciiBackground = () => {
-  return (
-    <div className="ascii-bg">
-      {Array.from({ length: 15 }).map((_, i) => (
-        <div key={i} className="ascii-row">
-          {Array.from({ length: 30 }).map((_, j) => (
-            <span key={j}>{Math.random() > 0.8 ? '+' : Math.random() > 0.5 ? '-' : '.'}</span>
-          ))}
-        </div>
-      ))}
-    </div>
-  );
-};
-
 export default function Projects() {
   const callbuddyRef = useRef<HTMLDivElement>(null);
   const [cardHeight, setCardHeight] = useState<number | undefined>(undefined);
@@ -53,10 +38,9 @@ export default function Projects() {
           <button className="info-btn">Info</button>
         </div>
         <div
-          className="card-content bg-dark-card"
+          className="card-content bg-neutral-900"
           style={{ overflow: "hidden", padding: "2rem", perspective: "3000px" }}
         >
-          <AsciiBackground />
           {/* Mockup Template */}
           <div className="mockup-container">
             <div className="mockup-header">
@@ -76,6 +60,7 @@ export default function Projects() {
                 src="/projects/callbuddy-mockup.png"
                 alt="Callbuddy Project Screenshot"
                 className="mockup-image"
+                loading="lazy"
               />
               <div className="scanline-bar"></div>
             </div>
@@ -100,7 +85,6 @@ export default function Projects() {
           <button className="info-btn">Info</button>
         </div>
         <div className="card-content bg-neutral-900" style={{ overflow: "hidden", padding: "2rem", perspective: "1500px" }}>
-          <AsciiBackground />
           {/* Mobile Mockup Template */}
           <div className="mockup-mobile-container">
             <div className="mockup-mobile-header">
@@ -118,6 +102,7 @@ export default function Projects() {
                 src="/projects/bookido-mockup.png"
                 alt="Bookido App Screenshot"
                 className="mockup-image"
+                loading="lazy"
               />
               <div className="scanline-bar"></div>
             </div>
@@ -148,7 +133,6 @@ export default function Projects() {
             <button className="info-btn">Info</button>
           </div>
           <div className="card-content bg-neutral-900" style={{ overflow: "hidden", padding: "1.5rem", perspective: "1500px" }}>
-            <AsciiBackground />
             {/* Mockup Template */}
             <div className="mockup-container" style={{ maxWidth: "100%", padding: "0.75rem" }}>
               <div className="mockup-header" style={{ padding: "0.25rem 0.75rem 1.5rem 0.75rem" }}>
@@ -168,6 +152,7 @@ export default function Projects() {
                   src="/projects/airplate-mockup.png"
                   alt="AirPlate Project Screenshot"
                   className="mockup-image"
+                  loading="lazy"
                 />
                 <div className="scanline-bar"></div>
               </div>
@@ -189,8 +174,7 @@ export default function Projects() {
             </div>
             <button className="info-btn">Info</button>
           </div>
-          <div className="card-content bg-dark-card" style={{ overflow: "hidden", padding: "1.5rem", perspective: "1500px" }}>
-            <AsciiBackground />
+          <div className="card-content bg-neutral-900" style={{ overflow: "hidden", padding: "1.5rem", perspective: "1500px" }}>
             {/* Mockup Template */}
             <div className="mockup-container" style={{ maxWidth: "100%", padding: "0.75rem" }}>
               <div className="mockup-header" style={{ padding: "0.25rem 0.75rem 1.5rem 0.75rem" }}>
@@ -210,6 +194,7 @@ export default function Projects() {
                   src="/projects/wellness-by-gitte-mockup.png"
                   alt="Wellness by Gitte Project Screenshot"
                   className="mockup-image"
+                  loading="lazy"
                 />
                 <div className="scanline-bar"></div>
               </div>
@@ -234,8 +219,7 @@ export default function Projects() {
           </div>
           <button className="info-btn">Info</button>
         </div>
-        <div className="card-content bg-dark-card" style={{ overflow: "hidden", padding: "2rem", perspective: "3000px" }}>
-          <AsciiBackground />
+        <div className="card-content bg-neutral-900" style={{ overflow: "hidden", padding: "2rem", perspective: "3000px" }}>
           {/* Mockup Template */}
           <div className="mockup-container">
             <div className="mockup-header">
@@ -255,6 +239,7 @@ export default function Projects() {
                 src="/projects/gluds-cafe-mockup.png"
                 alt="Gluds Cafe Project Screenshot"
                 className="mockup-image"
+                loading="lazy"
               />
               <div className="scanline-bar"></div>
             </div>
@@ -278,8 +263,7 @@ export default function Projects() {
           </div>
           <button className="info-btn">Info</button>
         </div>
-        <div className="card-content bg-dark-card" style={{ overflow: "hidden", padding: "2rem", perspective: "3000px" }}>
-          <AsciiBackground />
+        <div className="card-content bg-neutral-900" style={{ overflow: "hidden", padding: "2rem", perspective: "3000px" }}>
           {/* Mockup Template */}
           <div className="mockup-container">
             <div className="mockup-header">
@@ -299,6 +283,7 @@ export default function Projects() {
                 src="/projects/justesen-artpack-mockup.png"
                 alt="Justesen Artpack Project Screenshot"
                 className="mockup-image"
+                loading="lazy"
               />
               <div className="scanline-bar"></div>
             </div>

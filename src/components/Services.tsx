@@ -1,6 +1,26 @@
 import React, { useState } from 'react';
 import '../styles/Services.scss';
 
+// Pre-compute ASCII grids once at module load
+const makeGrid = (charFn: () => string) =>
+  Array.from({ length: 15 }, () => Array.from({ length: 30 }, charFn));
+
+const ASCII_BRANDING = makeGrid(() => Math.random() > 0.8 ? '+' : Math.random() > 0.5 ? '-' : '.');
+const ASCII_WEB = makeGrid(() => Math.random() > 0.9 ? '<>' : Math.random() > 0.5 ? '/' : '*');
+const ASCII_MOTION = makeGrid(() => Math.random() > 0.8 ? '~' : Math.random() > 0.5 ? '^' : '.');
+
+const AsciiGrid = ({ grid }: { grid: string[][] }) => (
+  <div className="ascii-bg">
+    {grid.map((row, i) => (
+      <div key={i} className="ascii-row">
+        {row.map((char, j) => (
+          <span key={j}>{char}</span>
+        ))}
+      </div>
+    ))}
+  </div>
+);
+
 const SERVICES_DATA = [
   {
     id: 'branding',
@@ -13,55 +33,47 @@ const SERVICES_DATA = [
     ],
     animation: (
       <div className="animation-container branding-anim-bento">
-        <div className="ascii-bg">
-          {Array.from({ length: 15 }).map((_, i) => (
-            <div key={i} className="ascii-row">
-              {Array.from({ length: 30 }).map((_, j) => (
-                <span key={j}>{Math.random() > 0.8 ? '+' : Math.random() > 0.5 ? '-' : '.'}</span>
-              ))}
-            </div>
-          ))}
-        </div>
+        <AsciiGrid grid={ASCII_BRANDING} />
         <div className="scene-3d">
           <div className="brand-bento-wrapper">
-            
+
             {/* ADDED: Floating Tags for Branding */}
             <div className="floating-tag tag-logo">{'[ LOGOMARK ]'}</div>
             <div className="floating-tag tag-color">{'#FD4D1E'}</div>
             <div className="floating-tag tag-type">{'.font-serif'}</div>
 
             <div className="brand-bento-inner">
-            
-            <div className="bento-panel p-logo">
-              {/* ... existing p-logo content ... */}
-              <div className="b-content">
-                <div className="wireframe-shape"></div>
-              </div>
-            </div>
-            
-            <div className="bento-panel p-colors">
-              <div className="b-content">
-                <div className="c-bar c1"></div>
-                <div className="c-bar c2"></div>
-                <div className="c-bar c3"></div>
-              </div>
-            </div>
-            
-            <div className="bento-panel p-type">
-              <div className="b-content">
-                <span className="t-large">Aa</span>
-                <div className="t-lines">
-                  <div className="t-line"></div>
-                  <div className="t-line short"></div>
+
+              <div className="bento-panel p-logo">
+                {/* ... existing p-logo content ... */}
+                <div className="b-content">
+                  <div className="wireframe-shape"></div>
                 </div>
               </div>
-            </div>
-            
-            <div className="bento-panel p-grid">
-              <div className="b-content">
-                <div className="g-dot"></div>
+
+              <div className="bento-panel p-colors">
+                <div className="b-content">
+                  <div className="c-bar c1"></div>
+                  <div className="c-bar c2"></div>
+                  <div className="c-bar c3"></div>
+                </div>
               </div>
-            </div>
+
+              <div className="bento-panel p-type">
+                <div className="b-content">
+                  <span className="t-large">Aa</span>
+                  <div className="t-lines">
+                    <div className="t-line"></div>
+                    <div className="t-line short"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bento-panel p-grid">
+                <div className="b-content">
+                  <div className="g-dot"></div>
+                </div>
+              </div>
 
             </div>
           </div>
@@ -80,18 +92,10 @@ const SERVICES_DATA = [
     ],
     animation: (
       <div className="animation-container web-anim-new">
-        <div className="ascii-bg">
-          {Array.from({ length: 15 }).map((_, i) => (
-            <div key={i} className="ascii-row">
-              {Array.from({ length: 30 }).map((_, j) => (
-                <span key={j}>{Math.random() > 0.9 ? '<>' : Math.random() > 0.5 ? '/' : '*'}</span>
-              ))}
-            </div>
-          ))}
-        </div>
+        <AsciiGrid grid={ASCII_WEB} />
         <div className="scene-3d">
           <div className="tech-stack-wrapper">
-            
+
             {/* Data Streams */}
             <div className="data-stream s1"><div className="packet"></div></div>
             <div className="data-stream s2"><div className="packet"></div></div>
@@ -163,21 +167,13 @@ const SERVICES_DATA = [
     ],
     animation: (
       <div className="animation-container motion-anim">
-        <div className="ascii-bg">
-          {Array.from({ length: 15 }).map((_, i) => (
-            <div key={i} className="ascii-row">
-              {Array.from({ length: 30 }).map((_, j) => (
-                <span key={j}>{Math.random() > 0.8 ? '~' : Math.random() > 0.5 ? '^' : '.'}</span>
-              ))}
-            </div>
-          ))}
-        </div>
+        <AsciiGrid grid={ASCII_MOTION} />
         <div className="scene-3d">
           <div className="motion-dev-wrapper">
             <div className="floating-tag tag-ease">{'ease: "power3.out"'}</div>
             <div className="floating-tag tag-dur">{'duration: 2.5s'}</div>
             <div className="floating-tag tag-fps">{'fps: 60'}</div>
-            
+
             <div className="software-3d">
               <div className="s-top-bar">
                 <div className="s-dots"><span></span><span></span><span></span></div>

@@ -1,5 +1,33 @@
+import React, { lazy, Suspense, useRef, useState, useEffect } from "react";
 import { Star, Figma, Framer, Github, Code, Layout, Box } from "lucide-react";
 import "../styles/About.scss";
+
+// Lazy-load the globe: defers cobe + d3-geo + topojson until needed
+const InteractiveGlobe = lazy(() => import("./InteractiveGlobe"));
+
+// Wrapper that only mounts children once the element enters the viewport
+function LazyVisible({ children, fallback }: { children: React.ReactNode; fallback?: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" } // start loading 200px before entering viewport
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return <div ref={ref}>{visible ? children : (fallback || null)}</div>;
+}
 
 export default function About() {
   return (
@@ -61,6 +89,7 @@ export default function About() {
                   <img
                     src="https://i.pravatar.cc/150?img=47"
                     alt="Jenna Morales"
+                    loading="lazy"
                   />
                   <div>
                     <p className="name">Jenna Morales</p>
@@ -129,6 +158,7 @@ export default function About() {
                   <img
                     src="https://i.pravatar.cc/150?img=47"
                     alt="Jenna Morales"
+                    loading="lazy"
                   />
                   <div>
                     <p className="name">Jenna Morales</p>
@@ -151,6 +181,7 @@ export default function About() {
                   <img
                     src="https://i.pravatar.cc/150?img=11"
                     alt="David Chen"
+                    loading="lazy"
                   />
                   <div>
                     <p className="name">David Chen</p>
@@ -172,6 +203,7 @@ export default function About() {
                   <img
                     src="https://i.pravatar.cc/150?img=32"
                     alt="Sarah Jenkins"
+                    loading="lazy"
                   />
                   <div>
                     <p className="name">Sarah Jenkins</p>
@@ -194,13 +226,43 @@ export default function About() {
               <span>Tilgængelig overalt</span>
             </div>
           </div>
-          <div className="globe-visual">
-            <div className="grid-overlay"></div>
-            <div className="sphere-1"></div>
-            <div className="sphere-2"></div>
-            <div className="sphere-3"></div>
-            <div className="ping-wrapper">
-              <div className="ping"></div>
+          <div className="globe-visual" style={{ pointerEvents: 'auto' }}>
+            <div style={{ width: '100%', maxWidth: '800px', aspectRatio: '1/1' }}>
+              <LazyVisible>
+                <Suspense fallback={<div style={{ width: '100%', height: '100%' }} />}>
+                  <InteractiveGlobe
+                    theta={0.3}
+                    dark={1}
+                    diffuse={1}
+                    mapSamples={16000}
+                    mapBrightness={1.8}
+                    baseColor={[0.30196078431372547, 0.30196078431372547, 0.30196078431372547]}
+                    markerColor={[1, 0.23529411764705882, 0.10196078431372549]}
+                    glowColor={[0, 0, 0]}
+                    markers={[
+                      {
+                        location: [55.5072, 11.1276],
+                        size: 0.14,
+                        label: "Slagelse, DK"
+                      }
+                    ]}
+                    scale={1}
+                    offset={[0, 0]}
+                    rotationSpeed={0.005}
+                    dragSensitivity={0.005}
+                    enableFadeMask={true}
+                    showGraticule={true}
+                    graticuleColor="#ffffff"
+                    graticuleOpacity={0.1}
+                    graticuleScale={0.8}
+                    showLandOutline={true}
+                    landOutlineColor="#ffffff"
+                    landOutlineOpacity={1}
+                    landOutlineScale={0.8}
+                    pulseMarkers={true}
+                  />
+                </Suspense>
+              </LazyVisible>
             </div>
           </div>
           <div className="gradient-fade"></div>

@@ -101,6 +101,7 @@ export default function Hero() {
             <img
               src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e15d2104-cd3b-440f-83f0-a3bd6ecf40c7_800w.png"
               alt="Kristoffer Staugaard"
+              fetchPriority="high"
             />
 
             <div className="card-content">

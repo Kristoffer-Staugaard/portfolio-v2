@@ -387,6 +387,8 @@
         overflow: hidden;
         perspective: 1000px;
         z-index: 1;
+        contain: content;
+        /* Isolate animation paint/layout from rest of page */
 
         .ascii-bg {
           position: absolute;
