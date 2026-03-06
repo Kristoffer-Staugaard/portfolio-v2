@@ -2,6 +2,21 @@ import { useRef, useState, useEffect } from "react";
 import { Framer, Figma, Code, Layout } from "lucide-react";
 import "../styles/Projects.scss";
 
+// Ambient ASCII Background Component
+const AsciiBackground = () => {
+  return (
+    <div className="ascii-bg">
+      {Array.from({ length: 15 }).map((_, i) => (
+        <div key={i} className="ascii-row">
+          {Array.from({ length: 30 }).map((_, j) => (
+            <span key={j}>{Math.random() > 0.8 ? '+' : Math.random() > 0.5 ? '-' : '.'}</span>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+};
+
 export default function Projects() {
   const callbuddyRef = useRef<HTMLDivElement>(null);
   const [cardHeight, setCardHeight] = useState<number | undefined>(undefined);
@@ -39,8 +54,9 @@ export default function Projects() {
         </div>
         <div
           className="card-content bg-dark-card"
-          style={{ overflow: "hidden", padding: "2rem", perspective: "1500px" }}
+          style={{ overflow: "hidden", padding: "2rem", perspective: "3000px" }}
         >
+          <AsciiBackground />
           {/* Mockup Template */}
           <div className="mockup-container">
             <div className="mockup-header">
@@ -49,11 +65,9 @@ export default function Projects() {
                 <span className="dot minimize"></span>
                 <span className="dot maximize"></span>
               </div>
-              <div className="mockup-title">
-                {`// mockup_ver_1.0`}
-              </div>
+
               <div className="mockup-ascii-decor">
-                {`[ + - x ]`}
+                <img src="/projects/logos/callbuddy-logo.png" alt="Callbuddy Logo" className="mockup-logo" />
               </div>
             </div>
             <div className="mockup-content">
@@ -63,10 +77,11 @@ export default function Projects() {
                 alt="Callbuddy Project Screenshot"
                 className="mockup-image"
               />
+              <div className="scanline-bar"></div>
             </div>
             <div className="mockup-footer">
-              <span className="status">STATUS: OK</span>
-              <span className="sys-info">SYS. 0xA1F</span>
+              <span className="status">POWER</span>
+              <span className="sys-info">MENU</span>
             </div>
           </div>
         </div>
@@ -85,13 +100,16 @@ export default function Projects() {
           <button className="info-btn">Info</button>
         </div>
         <div className="card-content bg-neutral-900" style={{ overflow: "hidden", padding: "2rem", perspective: "1500px" }}>
+          <AsciiBackground />
           {/* Mobile Mockup Template */}
           <div className="mockup-mobile-container">
             <div className="mockup-mobile-header">
               <div className="mockup-notch"></div>
               <div className="mockup-mobile-status">
-                <span className="time">09:41</span>
-                <span className="battery">{`[||||]`}</span>
+                <span className="time">
+                  <img src="/projects/logos/bookido-logo.png" alt="Bookido Logo" className="mockup-logo" style={{ height: '8px' }} />
+                </span>
+                <span className="battery">{`BATT OK`}</span>
               </div>
             </div>
             <div className="mockup-mobile-content">
@@ -101,6 +119,7 @@ export default function Projects() {
                 alt="Bookido App Screenshot"
                 className="mockup-image"
               />
+              <div className="scanline-bar"></div>
             </div>
             <div className="mockup-mobile-footer">
               <div className="home-indicator"></div>
@@ -129,19 +148,18 @@ export default function Projects() {
             <button className="info-btn">Info</button>
           </div>
           <div className="card-content bg-neutral-900" style={{ overflow: "hidden", padding: "1.5rem", perspective: "1500px" }}>
+            <AsciiBackground />
             {/* Mockup Template */}
-            <div className="mockup-container" style={{ maxWidth: "100%" }}>
-              <div className="mockup-header" style={{ padding: "0.25rem 0.75rem" }}>
+            <div className="mockup-container" style={{ maxWidth: "100%", padding: "0.75rem" }}>
+              <div className="mockup-header" style={{ padding: "0.25rem 0.75rem 1.5rem 0.75rem" }}>
                 <div className="mockup-controls">
                   <span className="dot close"></span>
                   <span className="dot minimize"></span>
                   <span className="dot maximize"></span>
                 </div>
-                <div className="mockup-title" style={{ fontSize: "0.6rem" }}>
-                  {`// airplate`}
-                </div>
+
                 <div className="mockup-ascii-decor" style={{ fontSize: "0.6rem" }}>
-                  {`[ - ]`}
+                  <img src="/projects/logos/airplate-logo.png" alt="Airplate Logo" className="mockup-logo" />
                 </div>
               </div>
               <div className="mockup-content">
@@ -151,10 +169,11 @@ export default function Projects() {
                   alt="AirPlate Project Screenshot"
                   className="mockup-image"
                 />
+                <div className="scanline-bar"></div>
               </div>
-              <div className="mockup-footer" style={{ padding: "0.25rem 0.75rem", fontSize: "0.55rem" }}>
-                <span className="status" style={{ color: "#27c93f" }}>ST: LIVE</span>
-                <span className="sys-info">S.0x1</span>
+              <div className="mockup-footer" style={{ padding: "1rem 0 0.25rem 0", fontSize: "0.55rem" }}>
+                <span className="status">POWER</span>
+                <span className="sys-info">INPUT</span>
               </div>
             </div>
           </div>
@@ -171,19 +190,18 @@ export default function Projects() {
             <button className="info-btn">Info</button>
           </div>
           <div className="card-content bg-dark-card" style={{ overflow: "hidden", padding: "1.5rem", perspective: "1500px" }}>
+            <AsciiBackground />
             {/* Mockup Template */}
-            <div className="mockup-container" style={{ maxWidth: "100%" }}>
-              <div className="mockup-header" style={{ padding: "0.25rem 0.75rem" }}>
+            <div className="mockup-container" style={{ maxWidth: "100%", padding: "0.75rem" }}>
+              <div className="mockup-header" style={{ padding: "0.25rem 0.75rem 1.5rem 0.75rem" }}>
                 <div className="mockup-controls">
                   <span className="dot close"></span>
                   <span className="dot minimize"></span>
                   <span className="dot maximize"></span>
                 </div>
-                <div className="mockup-title" style={{ fontSize: "0.6rem" }}>
-                  {`// wellness`}
-                </div>
-                <div className="mockup-ascii-decor" style={{ fontSize: "0.6rem" }}>
-                  {`~ * ~`}
+
+                <div className="mockup-ascii-decor">
+                  <img src="/projects/logos/wellness-by-gitte-logo.png" alt="Wellness Logo" className="mockup-logo" />
                 </div>
               </div>
               <div className="mockup-content">
@@ -193,10 +211,11 @@ export default function Projects() {
                   alt="Wellness by Gitte Project Screenshot"
                   className="mockup-image"
                 />
+                <div className="scanline-bar"></div>
               </div>
-              <div className="mockup-footer" style={{ padding: "0.25rem 0.75rem", fontSize: "0.55rem" }}>
-                <span className="status" style={{ color: "#ff5f56" }}>ST: MNTN</span>
-                <span className="sys-info">S.0x2</span>
+              <div className="mockup-footer" style={{ padding: "1rem 0 0.25rem 0", fontSize: "0.55rem" }}>
+                <span className="status">POWER</span>
+                <span className="sys-info">DEGAUSS</span>
               </div>
             </div>
           </div>
@@ -215,7 +234,8 @@ export default function Projects() {
           </div>
           <button className="info-btn">Info</button>
         </div>
-        <div className="card-content bg-dark-card" style={{ overflow: "hidden", padding: "2rem", perspective: "1500px" }}>
+        <div className="card-content bg-dark-card" style={{ overflow: "hidden", padding: "2rem", perspective: "3000px" }}>
+          <AsciiBackground />
           {/* Mockup Template */}
           <div className="mockup-container">
             <div className="mockup-header">
@@ -224,11 +244,9 @@ export default function Projects() {
                 <span className="dot minimize"></span>
                 <span className="dot maximize"></span>
               </div>
-              <div className="mockup-title">
-                {`// mockup_gluds_cafe_1.0`}
-              </div>
+
               <div className="mockup-ascii-decor">
-                {`< * / >`}
+                <img src="/projects/logos/gluds-cafe-logo.png" alt="Gluds Cafe Logo" className="mockup-logo" />
               </div>
             </div>
             <div className="mockup-content">
@@ -238,10 +256,11 @@ export default function Projects() {
                 alt="Gluds Cafe Project Screenshot"
                 className="mockup-image"
               />
+              <div className="scanline-bar"></div>
             </div>
             <div className="mockup-footer">
-              <span className="status" style={{ color: "#ffbd2e" }}>STATUS: CACHED</span>
-              <span className="sys-info">SYS. 0xB2C</span>
+              <span className="status">POWER</span>
+              <span className="sys-info">VOL +</span>
             </div>
           </div>
         </div>
@@ -259,7 +278,8 @@ export default function Projects() {
           </div>
           <button className="info-btn">Info</button>
         </div>
-        <div className="card-content bg-dark-card" style={{ overflow: "hidden", padding: "2rem", perspective: "1500px" }}>
+        <div className="card-content bg-dark-card" style={{ overflow: "hidden", padding: "2rem", perspective: "3000px" }}>
+          <AsciiBackground />
           {/* Mockup Template */}
           <div className="mockup-container">
             <div className="mockup-header">
@@ -268,11 +288,9 @@ export default function Projects() {
                 <span className="dot minimize"></span>
                 <span className="dot maximize"></span>
               </div>
-              <div className="mockup-title">
-                {`// mockup_justesen_artpack_v1.0`}
-              </div>
+
               <div className="mockup-ascii-decor">
-                {`{ : : }`}
+                <img src="/projects/logos/justesen-logo.png" alt="Justesen Logo" className="mockup-logo" />
               </div>
             </div>
             <div className="mockup-content">
@@ -282,10 +300,11 @@ export default function Projects() {
                 alt="Justesen Artpack Project Screenshot"
                 className="mockup-image"
               />
+              <div className="scanline-bar"></div>
             </div>
             <div className="mockup-footer">
-              <span className="status" style={{ color: "#dcfc3b" }}>STATUS: ACTIVE</span>
-              <span className="sys-info">SYS. 0xC1D</span>
+              <span className="status">POWER</span>
+              <span className="sys-info">CH +</span>
             </div>
           </div>
         </div>

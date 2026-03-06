@@ -185,10 +185,8 @@
               content: "";
               position: absolute;
               inset: 0;
-              background-image: radial-gradient(
-                rgba(255, 255, 255, 0.05) 1px,
-                transparent 1px
-              );
+              background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px,
+                  transparent 1px);
               background-size: 10px 10px;
               opacity: 0;
               transition: opacity 0.5s;
@@ -363,21 +361,15 @@
         .grid-overlay {
           position: absolute;
           inset: 0;
-          background-image: radial-gradient(
-            rgba(255, 255, 255, 0.3) 1px,
-            transparent 1px
-          );
+          background-image: radial-gradient(rgba(255, 255, 255, 0.3) 1px,
+              transparent 1px);
           background-size: 12px 12px;
-          mask-image: radial-gradient(
-            ellipse at top,
-            black 10%,
-            transparent 60%
-          );
-          -webkit-mask-image: radial-gradient(
-            ellipse at top,
-            black 10%,
-            transparent 60%
-          );
+          mask-image: radial-gradient(ellipse at top,
+              black 10%,
+              transparent 60%);
+          -webkit-mask-image: radial-gradient(ellipse at top,
+              black 10%,
+              transparent 60%);
         }
 
         .sphere-1 {
@@ -595,6 +587,7 @@
 }
 
 @keyframes ping {
+
   75%,
   100% {
     transform: scale(2);

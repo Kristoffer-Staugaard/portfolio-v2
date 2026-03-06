@@ -2,7 +2,7 @@
 .hero {
   display: grid;
   grid-template-columns: 1fr;
-  min-height: calc(100vh - 1.5rem);
+  min-height: calc(100vh - 1.5rem - 32px);
   border-radius: 0.75rem;
   padding: 2rem;
   position: relative;
@@ -186,11 +186,9 @@
       transform: translate(-50%, -50%);
       animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
       pointer-events: none;
-      background: linear-gradient(
-        to top right,
-        rgba(249, 115, 22, 0.2),
-        rgba(239, 68, 68, 0.2)
-      );
+      background: linear-gradient(to top right,
+          rgba(249, 115, 22, 0.2),
+          rgba(239, 68, 68, 0.2));
       opacity: 0.7;
       mix-blend-mode: screen;
       width: 500px;
