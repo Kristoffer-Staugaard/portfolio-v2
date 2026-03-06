@@ -199,7 +199,7 @@
       object-fit: cover;
       opacity: 0.85;
       transition: opacity 0.3s ease, filter 0.3s ease;
-      filter: grayscale(20%);
+      filter: contrast(110%);
     }
   }
 
@@ -312,7 +312,7 @@
       object-fit: cover;
       opacity: 0.85;
       transition: opacity 0.3s ease, filter 0.3s ease;
-      filter: grayscale(20%);
+      filter: contrast(110%);
     }
   }
 

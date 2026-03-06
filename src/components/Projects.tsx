@@ -38,7 +38,7 @@ export default function Projects() {
           <button className="info-btn">Info</button>
         </div>
         <div
-          className="card-content bg-orange-card"
+          className="card-content bg-dark-card"
           style={{ overflow: "hidden", padding: "2rem", perspective: "1500px" }}
         >
           {/* Mockup Template */}
@@ -59,8 +59,8 @@ export default function Projects() {
             <div className="mockup-content">
               {/* Replace src with your actual project screenshot */}
               <img
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
-                alt="Project Screenshot Mockup"
+                src="/projects/callbuddy-mockup.png"
+                alt="Callbuddy Project Screenshot"
                 className="mockup-image"
               />
             </div>
@@ -97,8 +97,8 @@ export default function Projects() {
             <div className="mockup-mobile-content">
               {/* Replace src with your actual project screenshot */}
               <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80"
-                alt="Bookido App Screenshot Mockup"
+                src="/projects/bookido-mockup.png"
+                alt="Bookido App Screenshot"
                 className="mockup-image"
               />
             </div>
@@ -147,8 +147,8 @@ export default function Projects() {
               <div className="mockup-content">
                 {/* Replace src with your actual project screenshot */}
                 <img
-                  src="https://images.unsplash.com/photo-1619983081563-430f63602796?auto=format&fit=crop&w=800&q=80"
-                  alt="AirPlate Screenshot Mockup"
+                  src="/projects/airplate-mockup.png"
+                  alt="AirPlate Project Screenshot"
                   className="mockup-image"
                 />
               </div>
@@ -170,7 +170,7 @@ export default function Projects() {
             </div>
             <button className="info-btn">Info</button>
           </div>
-          <div className="card-content bg-black" style={{ overflow: "hidden", padding: "1.5rem", perspective: "1500px" }}>
+          <div className="card-content bg-dark-card" style={{ overflow: "hidden", padding: "1.5rem", perspective: "1500px" }}>
             {/* Mockup Template */}
             <div className="mockup-container" style={{ maxWidth: "100%" }}>
               <div className="mockup-header" style={{ padding: "0.25rem 0.75rem" }}>
@@ -189,8 +189,8 @@ export default function Projects() {
               <div className="mockup-content">
                 {/* Replace src with your actual project screenshot */}
                 <img
-                  src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=800&q=80"
-                  alt="Wellness by Gitte Screenshot Mockup"
+                  src="/projects/wellness-by-gitte-mockup.png"
+                  alt="Wellness by Gitte Project Screenshot"
                   className="mockup-image"
                 />
               </div>
@@ -215,7 +215,7 @@ export default function Projects() {
           </div>
           <button className="info-btn">Info</button>
         </div>
-        <div className="card-content bg-gray-card" style={{ overflow: "hidden", padding: "2rem", perspective: "1500px" }}>
+        <div className="card-content bg-dark-card" style={{ overflow: "hidden", padding: "2rem", perspective: "1500px" }}>
           {/* Mockup Template */}
           <div className="mockup-container">
             <div className="mockup-header">
@@ -234,8 +234,8 @@ export default function Projects() {
             <div className="mockup-content">
               {/* Replace src with your actual project screenshot */}
               <img
-                src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80"
-                alt="Gluds Cafe Screenshot Mockup"
+                src="/projects/gluds-cafe-mockup.png"
+                alt="Gluds Cafe Project Screenshot"
                 className="mockup-image"
               />
             </div>
@@ -278,8 +278,8 @@ export default function Projects() {
             <div className="mockup-content">
               {/* Replace src with your actual project screenshot */}
               <img
-                src="https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&w=800&q=80"
-                alt="Justesen Artpack Screenshot Mockup"
+                src="/projects/justesen-artpack-mockup.png"
+                alt="Justesen Artpack Project Screenshot"
                 className="mockup-image"
               />
             </div>
